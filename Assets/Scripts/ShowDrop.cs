@@ -48,7 +48,7 @@ public class ShowDrop : MonoBehaviour
 
     public void IncreaseCurrency() {
         CurrentCurrency+=1;
-        value=CurrentCurrency;
+        Value=CurrentCurrency;
         ShowCurrency();
     }
 
