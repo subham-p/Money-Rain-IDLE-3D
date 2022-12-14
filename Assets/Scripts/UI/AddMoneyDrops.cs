@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AddMoneyDrops : MonoBehaviour
 {
     [SerializeField] GameObject[] moneyDrops;
-    // Start is called before the first frame update
+    [SerializeField] float[] moneyDeduction;
+    [SerializeField]  TextMeshProUGUI tmp;
+    MoneyPointsRenderer moneyPointsRenderer;
+    MoneyShow moneyShow;
+    float mnd;
+
     
     public void AddDrops(){
         foreach (GameObject moneyDrop in moneyDrops)
@@ -17,5 +24,21 @@ public class AddMoneyDrops : MonoBehaviour
                 break;
             }
         }
+        SaveSystem.Instance.Money -= mnd;
+        moneyShow.MoneyUpdate();
+    }
+    void Start()
+    {
+        moneyShow = FindObjectOfType<MoneyShow>();
+        moneyPointsRenderer = FindObjectOfType<MoneyPointsRenderer>();
+    }
+     void Update()
+    {
+        mnd=moneyDeduction[SaveSystem.Instance.MoneyPoints];
+        tmp.text=mnd+"$";
+        if(mnd> SaveSystem.Instance.Money)
+            GetComponent<Button>().interactable = false;
+        else
+            GetComponent<Button>().interactable = true;
     }
 }
