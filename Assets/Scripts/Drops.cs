@@ -19,6 +19,8 @@ public class Drops : MonoBehaviour
     {
         parent= transform.parent.gameObject;
         initialPos = transform.localPosition;
+                ChangeCurrency();
+
         // if(parent.GetComponentInChildren<ShowDrop>()!=null){
         // showDrop = parent.GetComponentInChildren<ShowDrop>();
         // // Debug.Log(showDrop.Value);
@@ -36,26 +38,33 @@ public class Drops : MonoBehaviour
        
     }
 
-    private void Start() {
-    //    parent= transform.parent.gameObject;
-    //     initialPos = transform.localPosition;
-        if(parent.GetComponentInChildren<ShowDrop>()!=null){
-        showDrop = parent.GetComponentInChildren<ShowDrop>();
-            Value = showDrop.CurrentCurrency;
-        // Debug.Log(showDrop.Value);
-        foreach (GameObject curency in currencies)
-        {
-            if (curency == currencies[showDrop.CurrentCurrency])
-            {
-                curency.SetActive(true);
-                break;
-            }
-            curency.SetActive(false);
-        }
-        }
+    private void Start()
+    {
+        //    parent= transform.parent.gameObject;
+        //     initialPos = transform.localPosition;
+        ChangeCurrency();
         // currencies[showDrop.Value].SetActive(true);
     }
-    
+
+    private void ChangeCurrency()
+    {
+        if (parent.GetComponentInChildren<ShowDrop>() != null)
+        {
+            showDrop = parent.GetComponentInChildren<ShowDrop>();
+            Value = showDrop.CurrentCurrency;
+            // Debug.Log(showDrop.Value);
+            foreach (GameObject curency in currencies)
+            {
+                if (curency == currencies[showDrop.CurrentCurrency])
+                {
+                    curency.SetActive(true);
+                    break;
+                }
+                curency.SetActive(false);
+            }
+        }
+    }
+
     public void Reset() {
         transform.SetParent(parent.transform);
         transform.localPosition=initialPos;
