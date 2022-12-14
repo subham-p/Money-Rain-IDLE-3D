@@ -6,8 +6,10 @@ public class MoneyCollection : MonoBehaviour
 {
     bool collect = false;
     float val=0;
+    MoneyShow moneyShow;
     private void OnEnable() {
         // val =SaveSystem.Instance.Money;
+        moneyShow = FindObjectOfType<MoneyShow>();
     }
     private void OnTriggerStay(Collider other) {
         if(collect){
@@ -26,6 +28,7 @@ public class MoneyCollection : MonoBehaviour
     IEnumerator CollectionFinish() {
         yield return new WaitForSeconds(0.5f);
         SaveSystem.Instance.Money += val;
+        moneyShow.MoneyUpdate();
         Debug.Log("Value "+SaveSystem.Instance.Money);
         collect = false;
         val=0;
