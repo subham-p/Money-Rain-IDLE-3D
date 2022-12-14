@@ -13,6 +13,8 @@ public class SaveSystem : MonoBehaviour
 
 
     float money;
+    float dropSpeed;
+    int moneyPoints;
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,5 +43,36 @@ public class SaveSystem : MonoBehaviour
         }
         }
 
+    public float DropSpeed {
+        get 
+        {
+             if(PlayerPrefs.HasKey("DropSpeed")) {
+                dropSpeed = PlayerPrefs.GetFloat("DropSpeed");
+                return dropSpeed;
+             }
+             return dropSpeed = 3f;
+        }
+        set
+        {
+            PlayerPrefs.SetFloat("DropSpeed", value);
+            dropSpeed = value;
+        }
+        }
 
+    public int MoneyPoints 
+    { 
+        get 
+        {
+             if(PlayerPrefs.HasKey("MoneyPoints")) {
+                moneyPoints = PlayerPrefs.GetInt("MoneyPoints");
+                return moneyPoints;
+             }
+             return moneyPoints = 0;
+        }
+        set
+        {
+            PlayerPrefs.SetInt("MoneyPoints", value);
+            moneyPoints = value;
+        }
+    }
 }

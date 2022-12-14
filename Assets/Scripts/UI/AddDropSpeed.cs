@@ -11,10 +11,12 @@ public class AddDropSpeed : MonoBehaviour
 
     private void OnEnable() {
         moneyRains= FindObjectsOfType<MoneyRain>();
+        DropSpeed= SaveSystem.Instance.DropSpeed;
     }
     
     public void AddSpeed(){
         DropSpeed-=0.25f;
+        SaveSystem.Instance.DropSpeed=DropSpeed;
         foreach (MoneyRain item in moneyRains)
          {
              item.ChangeDropSpeed(false);

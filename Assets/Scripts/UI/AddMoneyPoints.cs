@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddMoneyPoints : MonoBehaviour
 {
     [SerializeField] GameObject[] moneyPoints;
+    MoneyPointsRenderer moneyPointsRenderer;
     // Start is called before the first frame update
     
     public void AddPoints(){
@@ -12,13 +13,15 @@ public class AddMoneyPoints : MonoBehaviour
         {
             if(!moneyPoint.activeSelf) {
                 moneyPoint.SetActive(true);
+                SaveSystem.Instance.MoneyPoints+=1;
+                moneyPointsRenderer.RenderPoints();
                 break;
             }
         }
     }
     void Start()
     {
-        
+        moneyPointsRenderer = FindObjectOfType<MoneyPointsRenderer>();
     }
 
     // Update is called once per frame
