@@ -45,6 +45,7 @@ public class CloudShake : MonoBehaviour
              item.ChangeDropSpeed(false);
          }
          once = true;
+         AudioManager.Instance.Stop("Clink");
     } //MouseExit
 
     // Drag Game Object creating cloudShake effect
@@ -60,6 +61,7 @@ public class CloudShake : MonoBehaviour
          if(once){
             moneyRains= FindObjectsOfType<MoneyRain>();
              once = false;
+             AudioManager.Instance.Play("Clink");
             foreach (MoneyRain item in moneyRains)
             {
                 item.ChangeDropSpeed(true);

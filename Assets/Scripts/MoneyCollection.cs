@@ -23,6 +23,7 @@ public class MoneyCollection : MonoBehaviour
     public void CollectMoney(){
         collect = true;
         StartCoroutine(CollectionFinish());
+        AudioManager.Instance.Play("Coin");
     }
 
     IEnumerator CollectionFinish() {
