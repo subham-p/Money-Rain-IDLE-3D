@@ -8,6 +8,7 @@ public class MergeMoney : MonoBehaviour
     bool drag = false;
     Vector3 initalPos;
     [SerializeField] Vector2 tune = Vector2.zero;
+    [SerializeField] GameObject SplEffects;
 
     private void Start() {
         initalPos = transform.localPosition;
@@ -16,6 +17,7 @@ public class MergeMoney : MonoBehaviour
         // Debug.Log("merged + "+ other.tag);
         if(other.gameObject.tag == "Money" && !drag){
             if(other.GetComponent<ShowDrop>().Value==GetComponent<ShowDrop>().Value && GetComponent<ShowDrop>().Value<GetComponent<ShowDrop>().CurrenicesAvailable){
+                SplEffects.SetActive(true);
                 GetComponent<ShowDrop>().IncreaseCurrency();
                 other.gameObject.GetComponent<ShowDrop>().CurrentCurrency=0;
                 other.GetComponent<ShowDrop>().Value=0;
