@@ -5,9 +5,9 @@ using UnityEngine;
 public class MoneyCollection : MonoBehaviour
 {
     bool collect = false;
-    float val;
+    float val=0;
     private void OnEnable() {
-        val =0;
+        // val =SaveSystem.Instance.Money;
     }
     private void OnTriggerStay(Collider other) {
         if(collect){
@@ -25,7 +25,8 @@ public class MoneyCollection : MonoBehaviour
 
     IEnumerator CollectionFinish() {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Value "+val);
+        SaveSystem.Instance.Money += val;
+        Debug.Log("Value "+SaveSystem.Instance.Money);
         collect = false;
         val=0;
     }
@@ -49,7 +50,5 @@ public class MoneyCollection : MonoBehaviour
             default:
                 return 0;
         }
-
-        return 0;
     }
 }
