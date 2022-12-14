@@ -7,10 +7,10 @@ public class MoneyShow : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI tmp;
     private void Start() {
-        tmp.text=SaveSystem.Instance.Money+"$";
+        MoneyUpdate();
     }
 
     public void MoneyUpdate(){
-        tmp.text=SaveSystem.Instance.Money+"$";
+        tmp.text=SaveSystem.Instance.Money.ToString("F2")+"$";
     }
 }

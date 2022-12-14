@@ -58,6 +58,7 @@ public class CloudShake : MonoBehaviour
 
          //Change the speed of money rain only once
          if(once){
+            moneyRains= FindObjectsOfType<MoneyRain>();
              once = false;
             foreach (MoneyRain item in moneyRains)
             {
