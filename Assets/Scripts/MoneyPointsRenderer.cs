@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoneyPointsRenderer : MonoBehaviour
 {
     [SerializeField] GameObject[] moneyPoints;
-    private void Awake()
+    private void OnEnable()
     {
         RenderPoints();
 
@@ -18,6 +18,7 @@ public class MoneyPointsRenderer : MonoBehaviour
         foreach (GameObject moneyPoint in moneyPoints)
         {
             moneyPoint.SetActive(true);
+            moneyPoint.GetComponent<MoneyPointValue>().Value=x;
             if (x == number)
             {
                 break;

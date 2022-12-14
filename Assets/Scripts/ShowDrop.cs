@@ -9,6 +9,7 @@ public class ShowDrop : MonoBehaviour
     [SerializeField] GameObject[] currencies;
     int value;
     MoneyRain moneyRain;
+    MoneyPointValue moneyPointValue;
 
 
     public int Value { get => value; set => this.value = value; }
@@ -17,12 +18,16 @@ public class ShowDrop : MonoBehaviour
 
     private void OnEnable() {
         Value = CurrentCurrency;
+        // moneyPointValue =transform.GetComponentInParent<MoneyPointValue>();
+        // Debug.Log("Valo "+ moneyPointValue.Value);
         moneyRain = transform.GetComponentInParent<MoneyRain>();
         moneyRain.enabled = true;
         ShowCurrency();
     }
     void Start()
     {
+        // moneyPointValue =transform.GetComponentInParent<MoneyPointValue>();
+        // Debug.Log("Valo "+ moneyPointValue.Value);
         // ShowCurrency();
     }
 

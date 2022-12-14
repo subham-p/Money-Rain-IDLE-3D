@@ -75,4 +75,17 @@ public class SaveSystem : MonoBehaviour
             moneyPoints = value;
         }
     }
+
+    public int MoneyCurrency(int cur, int val=0, bool set=false) {
+        int mn=1;
+        if(!set){
+            if(PlayerPrefs.HasKey("MoneyCurrency"+cur)) {
+                    mn = PlayerPrefs.GetInt("MoneyCurrency"+cur);
+                    return mn;
+            }
+        }
+        PlayerPrefs.SetInt("MoneyCurrency"+cur, val);
+        mn = val;
+        return mn;
+    }
 }

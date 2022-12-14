@@ -467,6 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4506449599909917531}
   - component: {fileID: 6996254484150775679}
+  - component: {fileID: 3768635743732114106}
   m_Layer: 0
   m_Name: MoneyPoint
   m_TagString: Untagged
@@ -577,6 +578,18 @@ MonoBehaviour:
   - {fileID: 1688400202289392507}
   - {fileID: 2375295130170816291}
   dropsHolder: {fileID: 6131092736688668743}
+--- !u!114 &3768635743732114106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506449599909917530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ec91267e5bbe14b95d3b09ba20e158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6131092736185767516
 GameObject:
   m_ObjectHideFlags: 0
